@@ -1,0 +1,12 @@
+<h1 class="resultado">{{ input$ | async }}</h1>
+<div class="button-container">
+  <button
+    [class.operatorAC]="i === 0"
+    [class.numberZero]="i == layout.length - 2"
+    *ngFor="let value of layout; let i = index"
+    (click)="onButtonClick(value)"
+   [disabled]="!(canUseEqual$ | async) && value === '='" 
+  >
+    {{ value }}
+  </button>
+</div>
